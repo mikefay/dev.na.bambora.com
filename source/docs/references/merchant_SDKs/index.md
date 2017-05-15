@@ -71,7 +71,7 @@ Our Mobile SDKs wraps our Tokenization API. You can read more about the function
 [ios-pm]: https://beanstream.jfrog.io/beanstream/api/pods/beanstream-public
 
 ## Browser SDK
-Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](./collect_card_data#browser-sdk-payfields).
+Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](./collect_card_data#browser-sdk-payfields). 123
 
 ### Source
 | Language | Source                    |
