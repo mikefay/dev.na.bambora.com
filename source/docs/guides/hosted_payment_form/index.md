@@ -20,7 +20,7 @@ Checkout allows you to send out a single URL for a hosted, customizable, mobile-
 
 ## Requirements
 
-To create a payment form, you'll need two unique pieces of information: your Merchant ID and a generated hash key. Both can be found in our [Member Area](https://web.na.bambora.com).
+To create a payment form, you'll need two unique pieces of information: your Merchant ID and a hash key. Both can be found in our [Member Area](https://web.na.bambora.com).
 
 ### Merchant ID
 
@@ -30,31 +30,31 @@ You can also find your Merchant ID from the left navigation panel under **admini
 
 ### Hash Key
 
-Your hash key is way to encrypt your payment form, ensuring your payment is completed. 
+Your hash key is way to secure your Checkout form along with transaction and customer details, ensuring your payment is completed. 
 
 Click **administration** then **account settings**, and finally **order settings** to access your hash key.
 
-You'll use this hash key to activate an algorithm that generates a link to your form. 
+You'll use this hash key to generate a link to your form. 
 
 #### Manual Hash Creation
 
-If you're building your link manually and are creating a hashed validation for your string, you'll need to enter your eight character hash key after enabling **Require has validation on all Payment Gateway transaction requests**. Select the type of **Hash algorithm** you're using (MD5 or SHA-1) and then click **Update**.
+If you're building your link manually and are creating a hashed validation for your string, you'll need to enter your hash key after enabling **Require hash validation on all Payment Gateway transaction requests**. Select the type of **Hash algorithm** you're using (MD5 or SHA-1) and then click **Update**.
 
-> Note: When manually creating your link, any redirect links created with PHP may already have a hash function. If you're using the PHP hash function, you won't need to select the type of algorithm.
+> Note: When manually creating your link, any redirect links created with PHP may already have a hash function. If you're using the PHP hash function, you won't need to adjust the type of algorithm.
 
-Make sure to include the hash value in your Checkout form redirect link, or transactions will automatically be declined.
+Make sure to include the hash value in your Checkout form link, or transactions will automatically be declined.
 
 ## Configuring Your Form
 
-Before you send out your first invoice, you'll want to customize the form for required payment fields and to collect information important to your business. After you log into the [Member Area](https://web.na.bambora.com), click on **configuration**, and select **payment form** to find a list of title and form options.
+Before you send out your first invoice, you'll want to customize the form for required payment fields and to collect information important to the sale and your business. After you log into the [Member Area](https://web.na.bambora.com), click on **configuration**, and select **payment form** to find a list of title and form options.
 
 You can decide which of the following options is appropriate for your invoices or orders.
 
 | Option | Description |
 | ------ | ----------- |
 | Transaction Type | Choose between *Purchase* or *Pre-Authorization* as the default transaction type. |
-| Include Billing Address | Only available when enabled in your *Order Settings*, Include Billing Address will require the cardholder to supply their billing address to complete a transaction.
-| Include Shipping Address | Enabling this option will allow you to collect the shipping address of the cardholder.
+| Include Billing Address | Only available when enabled in your *Order Settings*, this requires the cardholder to provide their billing address to complete a transaction. |
+| Include Shipping Address | Enabling this option will allow you to collect the shipping address of the cardholder. |
 | Allow Price Modification | Enabling this option will allow the cardholder to select the amount they choose to donate or pay. |
 | Include Invoice/Order | Enabling this option will allow you to enter an invoice or order number when creating the payment form. Disabling this option will automatically use the Transaction ID as an order number on Transaction Reports. |
 | Include Card Selection | By enabling this option, the cardholder will be able to select their card brand during the transaction. Even when disabled, Bambora's API will automatically detect the brand using card numbers. |
@@ -84,37 +84,38 @@ Whether you build your form manually or use the [Checkout Form Link Builder](htt
 
 | Field | Variable | Description |
 | ----- | -------- | ----------- |
-| Amount | trnAmount | The total amount for the transaction including tax and additional fees. |
-| Order Number | trnOrderNumber | The invoice or order ID you want associated with the transaction. |
+| Amount | trnAmount | The total amount for the transaction including tax and additional fees. Up to 10 numbers, not including the decimal point. |
+| Order Number | trnOrderNumber | The invoice or order ID you want associated with the transaction. Up to 30 characters. |
 | Transaction Type | trnType | The type of transaction you want to perform. P - Purchase, PA - Pre-Authorization. |
-|Card Owner | trnCardOwner| The name of the cardholder as it appears on the card itself. As a variable, you can use `+` to separate names. |
+|Card Owner | trnCardOwner| The name of the cardholder as it appears on the card itself. As a variable, you can use `+` to separate names. 4-64 characters. |
 | Language | trnLanguage|The language that will be used to display field titles and form notes. For field or variable, eng - English, fre - French. |
 
 #### Billing Info
 
 | Field | Variable | Description |
 | ----- | -------- | ----------- |
-| Name | ordName | The billed contact's name. |
-| Email | ordEmailAddress | The email address of the billed contact and destination for email receipts in a valid email format. |
-| Address 1 | ordAddress1 | The billing address for the card holder. With Address Verification, this will need to match the card issuer's records. |
-| Address 2 | ordAddress2 | The second line for the card holder's billing address. |
-| City|ordCity | The city associated with the billing address. |
+| Name | ordName | The billed contact's name. Up to 64 characters. |
+| Email | ordEmailAddress | The email address of the billed contact and destination for email receipts in a valid email format. Up to 64 characters. |
+| Address 1 | ordAddress1 | The billing address for the card holder. With Address Verification, this will need to match the card issuer's records. Up to 32 characters. |
+| Address 2 | ordAddress2 | The second line for the card holder's billing address. Up to 32 characters |
+| City|ordCity | The city associated with the billing address. Up to 32 characters. |
 | Province | ordProvince | The province or state associated with the billing address. As a variable, the two-letter ISO code. |
-| Postal Code | ordPostalCode | The postal or ZIP code associated with the billing address. |
+| Postal Code | ordPostalCode | The postal or ZIP code associated with the billing address. Up to 16 characters. |
 | Country | ordCountry | The country associated with the billing address. As a variable, the two-letter ISO code. |
 
 #### Shipping Info
 
 | Field | Variable | Description |
 | ----- | -------- | ----------- |
-| Name | shipName | The name of the contact receiving the shipment. |
-| Email | shipEmailAddress | The shipping contact's email address. |
-| Address 1 | shipAddress1 | The shipping contact's destination address. |
-| Address 2 | shipAddress2 | The second line of the shipping contact's destination address. |
-| City | shipCity | The shipping contact's destination city. |
+| Name | shipName | The name of the contact receiving the shipment. Up to 64 characters. |
+| Email | shipEmailAddress | The shipping contact's email address in a valid email format. Up to 64 characters. |
+| Address 1 | shipAddress1 | The shipping contact's destination address. Up to 32 characters. |
+| Address 2 | shipAddress2 | The second line of the shipping contact's destination address. Up to 32 characters |
+| City | shipCity | The shipping contact's destination city. Up to 32 characters. |
 | Province | shipProvince | The shipping contact's province or state destination. As a variable, the two-letter ISO code. [Provinces](https://en.wikipedia.org/wiki/ISO_3166-2:CA) and [States](https://en.wikipedia.org/wiki/ISO_3166-2:US). |
+| Postal Code | shipPostalCode | The shipping contact's postal or ZIP code. Up to 16 characters.
 | Country | shipCountry | The shipping contact's destination country. As a variable, the [two-letter ISO code](https://www.iso.org/obp/ui/#search/code/). |
-| Phone | shipPhoneAddress | The shipping contact's phone number. |
+| Phone | shipPhoneAddress | The shipping contact's phone number. Up to 32 characters. |
 
 #### Redirects
 
