@@ -182,7 +182,7 @@ After integration tests are complete, as well as your terminal and merchant acco
 
 ## Going live
 
-You or your developer are responsible for when your account moves from the test environment to the live one. Once you're ready, send us an email requesting to go live, and we will make it so.
+Once you or your developer finish testing, send us an email requesting to go live, and we will make it so. You'll move from the test environment to live on production.
 
 We'll perform a review of your website to ensure everything is running smoothly. If we detect any issues or problems, we'll send you an email concerning your site review. 
 
