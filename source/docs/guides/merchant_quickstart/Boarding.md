@@ -13,21 +13,21 @@ navigation:
 
 ---
 
-# Go Live
+# Go live
 
-After you've signed up for a Merchant Account or Gateway Account, we require a few pieces of information before your account is able to process payments.
+After you've signed up for a Merchant Account, we require a few pieces of information before your account is able to process payments.
 
 If you haven't signed up yet, phone our Sales Team at 1 (888) 472-2072, or you can [request a call](http://www.bambora.com/en/ca/contact/sales/).
 
-> Our Onboarding Team will guide you through each important step. If you have any questions, feel free to email them to [applications.northamerica@bambora.com](mailto:applications.northamerica@bambora.com).
+> Our Onboarding Team will guide you through each important step. If you have any questions, feel free to email them at [applications.northamerica@bambora.com](mailto:applications.northamerica@bambora.com).
 
-## Approving  Applications
+## Approving  applications
 
 After we receive your application, our Onboarding Team will review it and the accompanying paperwork within one or two business days. If we reach out to you because something is incomplete or missing, you should follow up as quickly as possible to avoid delays.
 
 If you're exclusively using a website for payments, we will also review the website during the approval process to ensure you meet website requirements.
 
-#### PCI Questionnaires
+#### PCI questionnaires
 
 Before your application is processed, you'll complete one of two self-assessment questionnaires about your ability to meet PCI standards.
 
@@ -43,7 +43,7 @@ Any merchant using a fully integrated API will complete this comprehensive quest
 
 [PCI Questionnaire D](https://cdn.na.bambora.com/downloads/SAQs/SAQ_D_v3_Merchant.pdf)
 
-#### Website Requirements
+#### Website requirements
 
 If you're selling online, your goods or services require a clear description, along with information about their price. If your customer clearly understands what they're purchasing, there's less chance for a customer dispute or chargeback.
 
@@ -63,7 +63,8 @@ Because of requirements from Bambora and its banking partners, you're required t
 
 After we've confirmed this information is readily available on your website, we can start work on issuing your Merchant Account. If you have questions about any of these requirements, or need more detail on making them available, contact our [Customer Experience Team](https://www.bambora.com/en/ca/contact/support/).
 
-## Terminal Accounts
+## Terminal accounts
+
 If you've already got a Merchant Account through a bank or credit union, you'll be able to connect your previous account as a Terminal Account. We'll need a few specific details about those accounts so we can connect you to the Bambora gateway, this list of account providers below outlines the necessary details.
 
 [Chase Paymentech](#chase-paymentech)
@@ -160,7 +161,7 @@ If you're interested in accepting Interac Online, you'll need to complete the In
 
 >If you're unsure of any definitions or fields in the Bambora application, feel free to leave them blank and our Onboarding Team will be happy to assist.
 
-### Setting Up Your Website
+### Setting up your website
 
 #### Interac Checklist
 
@@ -177,15 +178,15 @@ You can begin to test your system's integration using [these test cards](http://
 
 After integration tests are complete, as well as your terminal and merchant accounts are confirmed, we'll send you an email to the address you provided, authorizing you to go live.
 
-> We recommend that you review our guide to [Security and Risk Management](https://support.na.bambora.com/bic/w/index.html#docs/security-risk-management.htm) for enhanced security features.
+> We recommend that you review our guide to [Security and Risk Management](https://support.na.bambora.com/bic/w/index.html#docs/security-risk-management.htm) for enhanced security featuresand best practices.
 
-## Going Live
+## Going live
 
-You or your developer are responsible to move your account from the test environment to the live one. Once you've made the transition, send us an email requesting to go live, and we will make it so.
+You or your developer are responsible for when your account moves from the test environment to the live one. Once you're ready, send us an email requesting to go live, and we will make it so.
 
 We'll perform a review of your website to ensure everything is running smoothly. If we detect any issues or problems, we'll send you an email concerning your site review. 
 
 > Test transactions will remain free of charge, but monthly processing fees will start from the point your account goes live.
 
-### More Information
+### More information
 If you're looking for more information about using Bambora, you can look through our [Quickstart Guide](http://support.na.bambora.com/bic/w/index.html#docs/online-help-area-quickstart-information.htm) for helpful hints, how-to's, and all things Bambora.
