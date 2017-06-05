@@ -19,19 +19,19 @@ We'll now go through the process of performing and validating a transaction usin
 
 ### cURL
 
-We use the command-line tool for all HTTP request examples in this guide. cURL allows you make a variety of API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. 
+We use the command-line tool cURL for all HTTP request examples in this guide. cURL allows you make API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. You can read more on cURL <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL">here</a>.
 
 ### Optional: Postman
 
-For fans of of the Chrome app [Postman](https://ww.getpostman.com), we offer a collection of our documentation and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes. 
+For fans of of the Chrome app [Postman](https://ww.getpostman.com), we offer a Collection of our documentation and an environment [here](https://dev.na.bambora.com/resources/postman-collection.zip). Before you run any queries, you'll need to update the environment with your Merchant ID and passcodes. 
 
-> Note: Most of your queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
+> Note: Most of your Postman queries containing variables are set to return the related variable: 'Get Token' will set the returned token in the environment.
 
-## Create A Transaction
+## Create a transaction
 
-### Tokenize A Card
+### Tokenize a card
 
-To process credit card transactions online, there are certain requirements set out by the Payment Card Industry (PCI) to offer minimum levels of security. Tokenizing credit card details is the most effective way to reduce the scope of your PCI compliance by limiting the interaction between your server and your customer's card details.
+To process credit card transactions online, you must be in compliance with standards set out by the Payment Card Industry (PCI). Tokenizing credit card details is the most effective way to reduce the scope of your PCI compliance by removing the interaction between your server and your customer's card details.
 
 You can also use our hosted [CheckoutFields library](https://github.com/bambora-na/checkoutfields) to validate and tokenize all card data to further reduce scope.
 
@@ -53,7 +53,7 @@ curl https://api.na.bambora.com/scripts/tokenization/tokens  \
 | expiry_year | The 2-digit year the card expires, as it appears on the card. |
 | cvd | The 3 or 4-digit security code that appears on the back of Visa and MasterCard cards, and the front of American Express. |
 
-### Create A Payment Profile
+### Create a Payment Profile
 
 Once you have a single-use token with payment details, you can use it to store the credit card details as a Payment Profile (multi-use token) for future payments.
 
@@ -74,7 +74,7 @@ curl https://api.na.bambora.com/v1/profiles  \
 | name | The cardholder's first and last name as they appear on the card. |
 | code | The single-use token ID. |
 
-### Take A Payment
+### Take a payment
 
 With a single-use or multi-use token, you can charge the card.  The sample below displays a transaction for $100 using a Payment Profile.
 
@@ -104,7 +104,7 @@ After your payment is sent, you can expect an HTTP response with a status code 2
 If your transaction was not approved, check the the HTTP response code along with the message in the object. You'll only receive one of two codes from our payment gateway emulator: 1 for approved, 7 for declined.
  >Note: HTTP status codes 200 and 402 mean your transaction reached the gateway. Any other response means your payment did not reach the emulator.
 
-## Searching The Transaction
+## Searching the transaction
 Within the response body , you'll find a Transaction ID. You can perform a transaction request using the Transaction ID at any future date through the Payments API.
 
 ```shell
@@ -113,7 +113,7 @@ curl -X GET https://api.na.bambora.com/v1/payments/{your_transaction_id} \
   -H "Accept: application/json"
 ```
 
-If you're searching for a transaction through the API, you can search by using the date and up to 24 fields from a transaction record.
+If you're searching for a transaction through the API, you can search by using the date and [up to 24 fields](https://dev.na.bambora.com/docs/references/merchant_SDKs/analyze_payments/?shell#search-criteria-bbeb017c6f808baf89a073ba2ef7af68) from a transaction record.
 
 ```shell
 curl https://api.na.bambora.com/v1/reports \
