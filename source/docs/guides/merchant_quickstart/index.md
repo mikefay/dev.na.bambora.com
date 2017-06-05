@@ -35,7 +35,7 @@ Depending on which API you intend to use for your business, you'll need a passco
 
 After logging into the [Member Area](https://web.na.bambora.com/), select **administration**,  then **account settings**, and finally **order settings**. 
 
-On the Order Settings page, you'll find the **Payment Gateway** section with the sub-header **Security/Authentication**. Here you can set an API access code by clicking the **Generate New Code** button.
+On the Order Settings page, you'll find the **Payment Gateway** section with the sub-header **Security/Authentication**. Here you can set an API access code by clicking the **Generate New Code** button. Once you have a new code, click **Update** at the bottom of the page.
 
 You can set passcodes for **Recurring Billing**, **Reporting**, **Batch File Upload** the same way in each category on the Order Settings page.
 
