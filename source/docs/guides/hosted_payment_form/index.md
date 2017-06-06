@@ -32,9 +32,7 @@ You can also find your Merchant ID from the left navigation panel under **admini
 
 Your hash key is way to secure your Checkout form along with transaction and customer details, ensuring your payment is completed. 
 
-Click **administration** then **account settings**, and finally **order settings** to access your hash key.
-
-You'll use this hash key to generate a link to your form. 
+Click **administration** then **account settings**, and finally **order settings** to access your hash key. You'll use this hash key to generate a link to your form.
 
 #### Manual hash creation
 
@@ -42,7 +40,13 @@ If you're building your link manually and are creating a hashed validation for y
 
 > Note: When manually creating your link, any redirect links created with PHP may already have a hash function. If you're using the PHP hash function, you won't need to adjust the type of algorithm.
 
-Make sure to include the hash value in your Checkout form link, or transactions will automatically be declined.
+When you insert your hash value, you'll do so in this base URL:
+
+`https://web.na.bambora.com/scripts/payments/payments.asp`
+
+Make sure to include the hash value in your Checkout form link as a hash variable `&hashValue`, or transactions will automatically be declined. In the sample below, the `merchant_id` is the string that is hashed.
+
+`https://na.bambora.com/scripts/payments/payments.asp?merchant_id=300204468&hashValue=fbef85a3436d1583381839779148fefbcefa2699`
 
 ### Payment options
 
