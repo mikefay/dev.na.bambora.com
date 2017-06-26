@@ -32,7 +32,7 @@ Before you accept Apple Pay with Bambora, you need to [register a Merchant ID an
 
 ### Configure Your P12
 
-To enable Apple Pay on your Merchant Account, you'll set a password for your P12 using Keychain Access.
+To enable Apple Pay on your Merchant Account, you'll set a password for your .p12 file using the Keychain Access app.
 
 1. Under the Category menu, select **Certificates**.
 2. Find and right-click your *Merchant ID* certificate. Select **Export**.
