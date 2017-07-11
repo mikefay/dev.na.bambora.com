@@ -1,4 +1,4 @@
-# Test resources
+# Testing resources
 
 As you set up your Merchant Account and begin processing with the API, you'll want to test connections to both servers and gateways. To ensure that your credit cards remain safe, we've provided test card below for you to use to test approvals and declines, and even Address Verification System.
 
