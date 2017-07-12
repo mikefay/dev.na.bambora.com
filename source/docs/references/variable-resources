@@ -47,4 +47,4 @@ The response variables listed below outline all of the responses through either 
 | trnOrderNumber | Up to 30 alphanumeric characters | This variable represents the optional order number assigned to transactions. | Optional |
 | trnPhoneNumber | Server-to-server up to 32 digits | This variable is the phone number submitted by the cardholder with the transaction. | Yes |
 | trnType | Up to 3 alphanumeric characters | This variable displays the type of transaction being performed. | No |
-| cardType | Double character | This variable displays the card type selected for the transaciton. VI - Visa, PV - Visa Debit, MC - Mastercard, AM - American Express, NN - Discover, DI - Diner's Club, JB - JCB, IO - Interac Online, ET - direct debit or electronic transfer. | Yes |
+| cardType | Double character | This variable displays the card type selected for the transaction. VI - Visa, PV - Visa Debit, MC - MasterCard, AM - American Express, NN - Discover, DI - Diner's Club, JB - JCB, IO - Interac Online, ET - direct debit or electronic transfer. | Yes |
