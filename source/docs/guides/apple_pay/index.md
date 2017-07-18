@@ -26,7 +26,7 @@ You can find more about Bambora and Apple Pay on [Github](https://github.com/bam
 
 ## Requirements
 
-### Registering Your Apple Pay Merchant ID
+### Registering your Apple Pay Merchant ID
 
 Before you accept Apple Pay with Bambora, you need to [register a Merchant ID and download a Merchant Certificate (P12)](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html) with Apple.
 
