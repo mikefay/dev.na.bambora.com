@@ -21,15 +21,15 @@ navigation:
 
 3D Secure is a collection of security measures offered by the three major credit card companies to fight fraudulent transactions. Verified by Visa (VbV), MasterCard SecureCode, and American Express SafeKey require the cardholder to enter a secure Private Identification Number (PIN) directly through a card issuer portal.
 
-After the cardholder's identity is confirmed, the issuer authenticates with a response. This response allows the transaction to be processed.
+After the cardholder's identity is confirmed, the issuer authenticates with a response allowing the transaction to be processed.
 
-> If you have any questions about 3D Secure, our [Customer Experience Team](https://www.bambora.com/en/ca/contact/support/) are happy to help.
+> If you have any questions about 3D Secure, our [Customer Experience Team](https://www.bambora.com/en/ca/contact/support/) are always happy to help.
 
 ## Requirements
 
-3D Secure is a free service for any of our Merchant Account holders that is enabled [on request](https://www.bambora.com/en/ca/contact/support/). To get immediate access, call 1 (888) 472-0811.
+3D Secure is a free service for any of our Merchant Account holde and enabled [on request](https://www.bambora.com/en/ca/contact/support/). You can get immediate access by giving us a call at 1 (888) 472-0811.
 
-> To use the fully integrated process, access using your own process, please let our team know while on the phone.
+> To gain access to the fully integrated process, please let our team know while on the phone.
 
 <!-- Use one of these two options to implement 3D Secure: -->
 
@@ -39,7 +39,7 @@ With the standard 3D Secure process, two requests must be made to complete a tra
 
 ### Submit a payment request
 
-When you submit transaction details to our REST API, you'll POST using a request that includes not only the payment and token details, but also the special variable, `term_url`. This URL allows you to specify a location for the issuer's VbV, SecureCode, or SafeKey response to return.
+When you submit transaction details to our REST API, you'll POST using a request that includes not only the payment and token details, but also the special variable, `term_url`. This URL allows you to direct the response from the issuer's VbV, SecureCode, or SafeKey to a specific location.
 
 ```shell
 Definition
@@ -86,7 +86,7 @@ Next, the card issuer will forward a response to the `term_url` using two variab
 | Variable | Description |
 | -------- | ----------- |
 | PaRes | Transaction authentication code |
-| merchant_data | Unique payment ID (AKA MD) |
+| merchant_data | Unique payment ID (MD) |
 
 ### Submit a Continue request
 
@@ -107,7 +107,7 @@ When the transaction is approved, the `term_url` will be called with the followi
 | trnEncCardNumber | The obfuscated 16-digit card number. |
 | password | An encoded response from the issuer. | 
 |opResponse | An encoded response from the issuer. |
-| pac | The pre-authorisation completion. |
+| pac | The pre-authorisation completion status. |
 | retryAttempt | The number of transaction attempts allowed. |
 
 ```shell
@@ -164,11 +164,11 @@ Response
 
 If you'd prefer to handle the 3D Secure authentication in a server-to-server environment, you'll need to be certified by Visa, MasterCard, and American Express to handle authentication on your servers. The issuer results of the VbV, SecureCode, or SafeKey authentication can be sent straight to our API with your standard transaction.
 
-All 3D Secure results must be sent with the transaction using the following variables:
+All 3D Secure results must be sent with the transaction using the variables below.
 
 | Variable | Description |
 | -------- | ----------- |
-| xid | The 3D Secure transaction identifier, up to 20 digits.
+| xid | The 3D Secure transaction identifier, up to 20 digits. |
 | eci | The single digit status code; 5 - authentication completed, 6 - authentication attempted but not completed. |
 | cavv | The 40-character cardholder authentication verification value. |
 
