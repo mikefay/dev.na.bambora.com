@@ -21,7 +21,7 @@ navigation:
 
 3D Secure is a collection of security measures offered by the major credit card companies to fight fraudulent transactions. Verified by Visa (VbV), MasterCard SecureCode, and American Express SafeKey require the cardholder to enter their authentication credential directly through a card issuer portal.
 
-After the cardholder's identity is confirmed, the issuer authenticates with a response allowing the transaction to be processed.
+After the cardholder's identity is confirmed, the issuer authenticates with a response allowing the transaction to be processed. When 3D Secure successfully confirms a cardholder's identity, there is a liability shift from the Merchant to the card brands. 
 
 > If you have any questions about 3D Secure, our [Customer Experience Team](https://www.bambora.com/en/ca/contact/support/) are always happy to help.
 
@@ -79,7 +79,7 @@ Response (HTTP status code 302 redirect)
 
 Once the 302 response is returned from the issuer portal, the `merchant_data` will need to be saved to the cardholder's current session.
 
-The merchant process URL will decode the response redirect, displaying the information for the cardholder's web browser and forwarding them to their issuer portal. Once there, they will be prompted to enter their authentication credentials.
+The merchant process URL will decode the response redirect, displaying the information for the cardholder's web browser and forwarding them to their issuer portal. Once there, they will be prompted to enter their credentials.
 
 Next, the card issuer will forward a response to the `term_url` using two variables.
 
@@ -88,20 +88,14 @@ Next, the card issuer will forward a response to the `term_url` using two variab
 | PaRes | Transaction authentication code |
 | merchant_data | Unique payment ID (MD) |
 
-### Submit a Continue request
-
-Next, you'll take the data from `term_url`, and post it along with the returned `PaRes` and `merchant_data` to our Payments API on the 'continue' endpoint.
-
-If the transaction was declined, or failed to pass VbV, SecureCode, or SafeKey, it will immediately be declined with `messageID` .
-
-When the transaction is approved, the `term_url` will be called with the following encoded name and value parameters.
+The `pa_res` will contain all of the information needed to process the transaction.
 
 | Parameter | Description |
 | ----- | ----------- |
 | trnAmount | Transaction amount. |
 | merchant_name | The title of your business. |
 | merchant_data | The unique payment ID. |
-| trnDatetime | The date and time of the transaction: 2017-02-23T17:26:26 |
+| trnDatetime | The date and time of the transaction: YYYY-MM-DDTHH:MM:SS |
 | pa_res | The PaRes authentication code. |
 | term_url | The location for the issuer response. |
 | trnEncCardNumber | The obfuscated 16-digit card number. |
@@ -109,6 +103,10 @@ When the transaction is approved, the `term_url` will be called with the followi
 |opResponse | An encoded response from the issuer. |
 | pac | The pre-authorisation completion status. |
 | retryAttempt | The number of transaction attempts allowed. |
+
+### Submit a Continue request
+
+Next, you'll simply take the `pares`, and post it along with the `payment_method` to our Payments API on the 'continue' endpoint.
 
 ```shell
 Request
